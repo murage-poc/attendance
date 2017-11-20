@@ -1,0 +1,12 @@
+
+#redirect all requests to .index.html except if the file exists and to css, images, e.tc
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* index.php/$0 [PT]
+
+#    prevent view of htaccess and htpassword files directly
+    <Files .ht* >
+    order allow,deny
+    deny from all
+    </Files>
