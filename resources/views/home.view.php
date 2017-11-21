@@ -10,13 +10,13 @@ require_once 'partials/header.php';
 
 ?>
 
-<div class = "col-lg-12 col-xs-5 col-md-5 wrapper">
-    <div class = "panel panel-primary">
+<div class = "container">
+    <div class = "main-table">
         <!-- Default panel contents -->
-        <div class = "panel-heading">KUCSA members list</div>
+        <h2>KUCSA members list</h2>
         
         <!-- Table -->
-        <table class = "table table-responsive">
+        <table class = "table table-bordered table-responsive table-format">
             <thead>
             <tr>
                 <th>No</th>
