@@ -9,7 +9,7 @@ $(
         getData(base_url+"/v1/api/");
 
     }
-)
+);
 
 function getData( url ) {
     $.get(url, function ( data, status ) {
@@ -26,7 +26,6 @@ function getData( url ) {
 
                 output += "<tr><td>" + i + "</td><td>" + holder.name +
                     "</td><td>" + holder.reg + "</td>" +
-                    "<td>" + holder.mobile + "</td>" +
                     " <td>" + holder.year + "</td>" +
                     " <td>" +
                     " <button type='submit' class='btn btn-success btn-report' id='" + holder.reg + "'>Report</button>" +
@@ -49,7 +48,7 @@ function getData( url ) {
 
 function report( post_url ) {
     $(".btn-report").click(function () {
-        var user = $(this).attr('id')
+        var user = $(this).attr('id');
 
         $.post(post_url,
             {"user": user},

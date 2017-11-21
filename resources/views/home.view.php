@@ -22,7 +22,6 @@ require_once 'partials/header.php';
                 <th>No</th>
                 <th>NAME</th>
                 <th>Reg No</th>
-                <th>Mobile</th>
                 <th>Year</th>
                 <th>Report</th>
             </tr>
@@ -32,8 +31,6 @@ require_once 'partials/header.php';
             
             </tbody>
         </table>
-    </div>
-</div>
 
 
 <?php
