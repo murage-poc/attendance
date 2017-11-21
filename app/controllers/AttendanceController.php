@@ -11,25 +11,44 @@ use Carbon\Carbon;
  */
 class AttendanceController extends Controller {
 	
-	public static function store(){
+	public static function store() {
 		//check if uuid is already set
 		
-		if(isset($_COOKIE['uuid'])){
+		if ( isset( $_COOKIE['uuid'] ) ) {
 			return false;
 			
 		}
 		
-		$user=$_POST['user'];
+		$user = $_POST['user'];
 		
-		$c=Builder::table('attendance')
-		       ->insert($user,Carbon::today())
-		       ->into('regno','dui');
+		/*check if user has already reported
+		&& check if the ip address has already made a previous **successful** request
+		*/
 		
-		if(is_numeric($c)) {
-			//set the unique cookie
-			$uid=rand(1,19).$user;
+		$rep = Builder::table( 'attendance' )
+		              ->select( 'regno as reg', 'address as ip' )
+		              ->where( "dui", "=", "'". Carbon::today()."'" )
+		              ->get();
+		
+		$rep = json_decode( $rep, true );
+		
+		foreach ( $rep as $member ) {
 			
-			setcookie("uuid",$uid,time()+86400*2);
+			if ( array_search( $_SERVER["REMOTE_ADDR"], $member ) == "ip" ||
+			     array_search( $user, $member ) == "reg" ) {
+				return false;
+			}
+		}
+		$c = Builder::table( 'attendance' )
+		            ->insert( $user, Carbon::today(), $_SERVER["REMOTE_ADDR"] )
+		            ->into( 'regno', 'dui', 'address' );
+		
+		if ( is_numeric( $c ) ) {
+			//set the unique cookie
+			$uid = rand( 1, 19 ) . $user;
+			
+			setcookie( "uuid", $uid, time() + 86400 * 1 );
+			
 			return true;
 		}
 		

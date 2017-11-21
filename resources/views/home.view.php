@@ -7,6 +7,7 @@
  */
 
 require_once 'partials/header.php';
+
 ?>
 
 <div class = "col-lg-12 col-xs-5 col-md-5 wrapper">
