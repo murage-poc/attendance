@@ -31,12 +31,14 @@ class AttendanceController extends Controller {
 		              ->get();
 		
 		$rep = json_decode( $rep, true );
-		
-		foreach ( $rep as $member ) {
-			
-			if ( array_search( $_SERVER["REMOTE_ADDR"], $member ) == "ip" ||
-			     array_search( $user, $member ) == "reg" ) {
-				return false;
+		if($rep!=null) //fix bug if there is no members in attendance :-)
+		{
+			foreach ( $rep as $member ) {
+				
+				if ( array_search( $_SERVER["REMOTE_ADDR"], $member ) == "ip" ||
+				     array_search( $user, $member ) == "reg" ) {
+					return false;
+				}
 			}
 		}
 		$c = Builder::table( 'attendance' )
