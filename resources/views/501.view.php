@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="customerservice@mimidots.com"/>
+    
+    <title>KUCSA</title>
+    <meta name="description"    content=""/>
+    <meta name="keywords"
+          content="mimidots">
+    <link rel = "shortcut icon" type = "image/x-icon" href = "favicon.ico">
 <style>
 	
 	.page-501
@@ -116,9 +131,11 @@
 	}
 
 </style>
+</head>
 
-<div class="page-501
-">
+<body>
+
+<div class="page-501">
 	<p class="text-501
 ">501</p>
 	
@@ -128,5 +145,9 @@
 		<a class="btn btn-success" href="/">Return home</a>
 	</p>
 </div>
+
+</body>
+</html>
+
 
 

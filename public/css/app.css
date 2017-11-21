@@ -1,7 +1,11 @@
 
 body{
+    background-color: #5BC0DE;
 }
-. welcome{
-    text-align: center;
-    margin-top: 10%;
+.table-format{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #122B40;
+}
+.container{
+    padding: 10px;
 }
