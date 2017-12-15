@@ -56,4 +56,12 @@ class AttendanceController extends Controller {
 		
 		return false;
 	}
+	public static function getUser(){
+		
+		$c= Builder::table("members")->
+		select("concat(firstname,' ',lastname) as name")
+		->where('regno','=',"'".	$_POST['user']."'")->get();
+		
+		dd(json_decode($c,true));
+	}
 }
