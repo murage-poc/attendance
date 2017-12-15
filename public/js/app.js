@@ -28,7 +28,8 @@ function getData( url ) {
                     "</td><td>" + holder.reg + "</td>" +
                     " <td>" + holder.year + "</td>" +
                     " <td>" +
-                    " <button type='submit' class='btn btn-success btn-sm btn-report' id='" + holder.reg + "'>Report</button>" +
+                    " <button type='submit' class='btn btn-success btn-sm btn-report' " +
+                    "id='" + holder.reg + "'>Report</button>" +
                     "</td></tr>";
 
                 i++;
