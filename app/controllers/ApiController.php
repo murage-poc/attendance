@@ -12,11 +12,27 @@ use Model\Members;
 
 class ApiController extends Controller {
 	
+	/**
+	 * ApiController constructor.
+	 */
+	public function __construct() {
+		header("Access-Control-Allow-Origin:*");
+		
+	}
+	
 	public function get(){
 		
 		$data=Members::get();
 		
-		echo $data;
+		
+		if(!$data["error"]){ //if there is no error
+			echo (json_encode($data["response"]));
+		}
+		else{
+			echo null;
+			//one can record the error for debugging purpose
+			
+		}
 	}
 	
 	public function  store(){
