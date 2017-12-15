@@ -11,14 +11,17 @@ namespace Model;
 
 use Builder;
 use Carbon\Carbon;
+use function json_decode;
 
 class Members extends Model {
 	
 	public static function get() {
+		
 		$data = Builder::table( "members" )
 			->select("concat(firstname,' ',lastname ) as name",
 				"year","tel1 as mobile","course","regno as reg")
 		               ->get( );
+		$data=json_decode($data,true);
 		
 		return  $data;
 	}

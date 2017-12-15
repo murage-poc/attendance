@@ -27,34 +27,37 @@ class AttendanceController extends Controller {
 		
 		$rep = Builder::table( 'attendance' )
 		              ->select( 'regno as reg', 'address as ip' )
-		              ->where( "dui", "=", "'". Carbon::today()."'" )
+		              ->where( "dui",Carbon::today())
 		              ->get();
 		
 		$rep = json_decode( $rep, true );
-		if($rep!=null) //fix bug if there is no members in attendance :-)
+
+		if($rep["response"]!=null && !$rep["error"]) //fix bug if there is no members in attendance :-)
 		{
-			foreach ( $rep as $member ) {
+			foreach ( $rep["response"] as $member ) {
 				
 				if ( array_search( $_SERVER["REMOTE_ADDR"], $member ) == "ip" ||
 				     array_search( $user, $member ) == "reg" ) {
 					return false;
 				}
 			}
-		}
-		$c = Builder::table( 'attendance' )
-		            ->insert( $user, Carbon::today(), $_SERVER["REMOTE_ADDR"] )
-		            ->into( 'regno', 'dui', 'address' );
-		
-		if ( is_numeric( $c ) ) {
-			//set the unique cookie
-			$uid = rand( 1, 19 ) . $user;
+		}else {
+			$c    = Builder::table( 'attendance' )
+			               ->insert( $user, Carbon::today(), $_SERVER["REMOTE_ADDR"] )
+			               ->into( 'regno', 'dui', 'address' );
+			$resp = json_decode( $c, true );
 			
-			setcookie( "uuid", $uid, time() + 86400 * 1 );
-			
-			return true;
+			if ( is_numeric( $resp["response"] ) && ! $resp["error"] ) {
+				//set the unique cookie
+				$uid = rand( 1, 19 ) . $user;
+				
+				setcookie( "uuid", $uid, time() + 86400 * 1 );
+				
+				return true;
+			}
 		}
 		
-		return false;
+		return false; //in case uncaught error occurs
 	}
 	public static function getUser(){
 		
