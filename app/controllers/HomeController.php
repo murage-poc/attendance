@@ -19,6 +19,7 @@ class HomeController extends Controller{
 	}
 	
 	public function done(){
+		
 		return view("success");
 	}
 	public function error(){
