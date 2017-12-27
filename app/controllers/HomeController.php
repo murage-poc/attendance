@@ -29,4 +29,8 @@ class HomeController extends Controller{
 		return view("501");
 	}
 	
+	public function test(){
+		return view("test");
+	}
+	
 }

@@ -13,10 +13,15 @@
     <meta name="keywords"
           content="mimidots">
     <link rel = "shortcut icon" type = "image/x-icon" href = "favicon.ico">
+    
+<!--    load jquery stylesheet-->
+    <link rel = "stylesheet" href = "./public/css/jquery.mobile-1.4.5.min.css">
+    
 <!--Bootstrap files-->
-    <link rel = "stylesheet" href = "public/css/bootstrap.min.css">
+    <link rel = "stylesheet" href = "./public/css/bootstrap.min.css">
+    
     <!-- Core css -->
-    <link href="public/css/app.css" rel="stylesheet">
+    <link href="./public/css/app.css" rel="stylesheet">
 
 
 </head>
