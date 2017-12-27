@@ -1,7 +1,7 @@
 /**
  * Created by Dread Pirate Roberts on 06-Aug-17.
  */
-var base_url="http://169.254.249/kucsa";
+var base_url="http://169.254.249.20/kucsa";
 // var base_url="http://localhost/kucsa";
 $(
     function () {
