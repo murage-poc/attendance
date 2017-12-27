@@ -31,8 +31,12 @@ require_once 'partials/header.php';
             
             </tbody>
         </table>
-
-
+    
+        <footer>
+            <p>
+                This website uses cookies. By using our services, you’re agreeing to our <a>Cookie Policy</a>.
+            </p>
+        </footer>
 <?php
 require_once 'partials/footer.php';
 ?>

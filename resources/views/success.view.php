@@ -70,6 +70,11 @@
 	</p>
 </div>
 
+<footer>
+    <p>
+        This website uses cookies. By using our services, you’re agreeing to our <a>Cookie Policy</a>.
+    </p>
+</footer>
 </body>
 </html>
 
