@@ -29,7 +29,7 @@ class ApiController extends Controller {
 			echo (json_encode($data["response"]));
 		}
 		else{
-			echo null;
+			echo json_encode(null);
 			//one can record the error for debugging purpose
 			
 		}

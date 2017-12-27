@@ -1,3 +1,4 @@
 kucsa.sql
 vendor/
 .idea/
+composer.lock
