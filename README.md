@@ -1,4 +1,4 @@
 # attendance
-Sample attendance app using PHP worst practices 😂😂
+Sample attendance app using PHP
 
-Sorry I am still documenting how to setup and use the project
+Documentation Wiki comming soon
